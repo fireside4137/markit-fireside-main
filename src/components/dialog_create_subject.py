@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from src.database.db import create_subject
 
 
@@ -16,6 +17,8 @@ def create_subject_dialog(teacher_id):
             try:
                 create_subject(sub_id, sub_name, sub_section, teacher_id)
                 st.toast("Subject created successfully")
+                time.sleep(1)
+                st.rerun()
             except Exception as e:
                 st.error(f"Error : {str(e)}")
 
