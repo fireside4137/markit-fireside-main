@@ -3,11 +3,10 @@ import streamlit as st
 import segno
 import io #for binary data
 
-
 @st.dialog("Share Class Link")
 def share_subject_dialog(subject_name, subject_code):
     app_domain = "http://localhost:8501/"
-    join_url = f"{app_domain}/?join-code={subject_code}"
+    join_url = f"{app_domain.rstrip('/')}/?join-code={subject_code}"
 
     st.header("Scan to Join")
 
